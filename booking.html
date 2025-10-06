@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL Jet - Book Your Flight</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Replicating key variables from style.css */
+        :root {
+            --headline-font: 'Cairo', sans-serif;
+            --body-font: 'Lora', serif;
+            --dark-blue: #1a237e; /* Navy Blue */
+            --light-grey: #e9e9e9;
+            --mid-grey: #a9a9a9;
+            --dark-grey: #505560;
+            --accent-color: #007bff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            line-height: 1.6;
+            color: var(--dark-grey);
+            background-color: var(--light-grey);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            /* Background map effect (assuming image exists) */
+            background-image: url('images/map3.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .booking-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .booking-container h1 {
+            font-family: var(--headline-font);
+            color: var(--dark-blue);
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        .booking-form {
+            display: grid;
+            gap: 20px;
+            text-align: left;
+        }
+
+        /* Two columns for Location and Passenger count */
+        .grid-half {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Two columns for Dates */
+        .grid-dates {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--mid-grey);
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--dark-blue);
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            margin-top: 20px;
+            width: 100%; /* Full width button */
+        }
+
+        .submit-btn:hover {
+            background-color: #001a5b; /* Slightly darker navy */
+        }
+
+        .message-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: var(--light-grey);
+            border: 1px solid var(--dark-blue);
+            border-radius: 8px;
+            color: var(--dark-blue);
+            display: none; /* Hidden by default */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .booking-container {
+                padding: 30px 20px;
+            }
+            .grid-half, .grid-dates {
+                grid-template-columns: 1fr; /* Stack columns on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="booking-container">
+            <h1>BOOK YOUR PRIVATE FLIGHT</h1>
+
+            <form class="booking-form" id="bookingForm">
+
+                <!-- 1. LOCATION SELECTION -->
+                <div class="grid-half">
+                    <div class="form-group">
+                        <label for="departure">Departure Airport</label>
+                        <input type="text" id="departure" name="departure" placeholder="e.g., Dubai (DXB)" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="arrival">Arrival Airport</label>
+                        <input type="text" id="arrival" name="arrival" placeholder="e.g., London (LHR)" required>
+                    </div>
+                </div>
+
+                <!-- 2. PASSENGER COUNT -->
+                <div class="form-group">
+                    <label for="passengers">Number of Passengers</label>
+                    <select id="passengers" name="passengers" required>
+                        <option value="" disabled selected>Select number of people</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6-8 (Cessna XL)</option>
+                        <option value="9">9+ (Gulfstream G650)</option>
+                    </select>
+                </div>
+
+                <!-- 3. DATE AND TIME SELECTION -->
+                <div class="grid-dates">
+                    <div class="form-group">
+                        <label for="date">Departure Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Departure Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">GET INSTANT QUOTE</button>
+            </form>
+
+            <div class="message-box" id="quoteMessageBox">
+                <!-- Message will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- JavaScript Logic for the Booking Form ---
+
+        const form = document.getElementById('bookingForm');
+        const messageBox = document.getElementById('quoteMessageBox');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop the default form submission
+
+            // Simple validation to ensure all fields are filled
+            const departure = document.getElementById('departure').value;
+            const arrival = document.getElementById('arrival').value;
+            const passengers = document.getElementById('passengers').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            if (!departure || !arrival || !passengers || !date || !time) {
+                showMessage('Please fill out all fields to get your quote.', false);
+                return;
+            }
+
+            // In a real application, this data would be sent to a backend API
+            // to calculate a price and check aircraft availability.
+
+            // Simulating a successful quote result
+            const dep = departure.split('(')[0].trim();
+            const arr = arrival.split('(')[0].trim();
+
+            showMessage(`Thank you! Your private flight from **${dep}** to **${arr}** for ${passengers} people on ${date} at ${time} is being calculated. We will contact you shortly with a personalized quote.`, true);
+
+            // Optional: Reset the form after successful submission
+            // form.reset();
+        });
+
+        /**
+         * Displays a message to the user in the custom message box.
+         * @param {string} message - The text to display.
+         * @param {boolean} success - True for success (green), false for error/info (blue).
+         */
+        function showMessage(message, success) {
+            messageBox.innerHTML = message;
+            messageBox.style.display = 'block';
+            messageBox.style.backgroundColor = success ? 'var(--light-grey)' : '#fff3cd';
+            messageBox.style.borderColor = success ? 'var(--dark-blue)' : '#ffeeba';
+            messageBox.style.color = success ? 'var(--dark-blue)' : '#856404';
+        }
+    </script>
+</body>
+</html>

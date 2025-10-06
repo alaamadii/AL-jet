@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL Jet - House Even in the Sky</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero-section">
+        <div class="navbar">
+            <h1 class="logo">AL jet</h1>
+            <nav>
+                <a href="#jet-selection-section">Explore</a>
+                <a href="#jet-selection-section">Book</a>
+                <a href="signup.html">AL Club</a>
+                <a href="Terms.html">Help</a>
+            </nav>
+        </div>
+
+        <div class="hero-content">
+            <h2 class="hero-title">HOUSE EVEN IN THE SKY</h2>
+            <p class="hero-subtitle">YOUR PRIVATE OASIS AMONGST THE CLOUDS</p>
+        </div>
+
+        <div class="mission-container">
+            <div class="mission-text">
+                <p class="mission-heading">our mission:</p>
+                <p>To give you comfort and safety for an unforgettable journey. Save your time from airport lines and book your private flight easily with AL Jet.</p>
+            </div>
+            <a href="signup.html" class="member-button" id="openSignUp">Become a Member</a>
+        </div>
+    </header>
+
+    <section id= "jet-selection-section" class="jet-selection-section">
+        <h2 class="section-heading">PICK YOUR JET</h2>
+
+        <div class="jet-cards-container">
+            
+        </div>
+    </section>
+
+   <footer class="contact-section">
+        <div class="footer-content-wrapper">
+            <div class="contact-details">
+                <p class="contact-heading">Contact Us</p>
+                <p>aljet@flight.com</p>
+                <p>+1 897 954 09998</p>
+            </div>
+
+            <div class="footer-links-group">
+                <div class="quick-links">
+                    <p><a href="signup.html">Join our club</a></p>
+                    <p><a href="#">Book your flight</a></p>
+                    <p><a href="#">Follow Us</a></p>
+                </div>
+
+                <div class="social-icons">
+                       <a href="#" aria-label="Instagram">
+                            <img src="images/instagram.png" alt="Instagram Logo" class="social-logo">
+                       </a>
+
+                       <a href="#" aria-label="Facebook">
+                            <img src="images/facebook-app-symbol.png" alt="Facebook Logo" class="social-logo">
+                       </a>
+                       <a href="#" aria-label="X (Twitter)">
+                            <img src="images/twitter.png" alt="X Logo" class="social-logo">
+                       </a>
+                  </div>
+            </div>
+        </div>
+    </footer>
+
+   <script>
+     // 1. ADD DETAILS URL TO DATA
+        const fakeJetData = [
+         {
+            name: '+Cessna Citation XLS',
+            imageUrl: 'images/xls.png',
+            detailsUrl: 'cessna-details.html' // The link for the Cessna jet
+         },
+         {
+            name: 'Gulfstream G650',
+            imageUrl: 'images/G650.png',
+            detailsUrl: 'gulfstream-details.html' // The link for the Gulfstream jet
+         }
+        ];
+
+     // --- DYNAMIC LOADING FUNCTION ---
+        function loadJets() {
+        const jets = fakeJetData;
+
+        const container = document.querySelector('.jet-cards-container');
+        container.innerHTML = '';
+
+        jets.forEach(jet => {
+            const cardHTML = `
+                <div class="jet-card">
+                    <div class="jet-images full-image-set">
+                        <img src="${jet.imageUrl}" alt="${jet.name} image" class="jet-image full-image">
+                    </div>
+                    <div class="jet-info">
+                        <p class="jet-name">${jet.name}</p>
+                        <a href="${jet.detailsUrl}" class="book-button">MORE INFORMATION</a>
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', cardHTML);
+        });
+    }
+
+    // Run loadJets once the entire HTML document is loaded
+    document.addEventListener('DOMContentLoaded', loadJets);
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cessna Citation XLS</title>
+    <style>
+        :root {
+            --headline-font: 'Cairo', sans-serif;
+            --body-font: 'Lora', serif;
+            --dark-grey: #505560;
+            --mid-grey: #a9a9a9;
+            --dark-blue: #1a237e; /* The requested navy color */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--body-font);
+        }
+
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            /* Background map effect */
+            background-image: url('images/map3.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--dark-blue); /* Text color set to navy blue */
+        }
+
+        .container {
+            /* Removed background and shadow lines */
+            padding: 40px;
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+        }
+
+        .jet-images {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .details-content {
+            padding-top: 10px;
+            text-align: center; /* ALIGNED ALL TEXT TO CENTER */
+        }
+
+        .jet-title {
+            font-family: var(--headline-font);
+            font-size: 3em;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: var(--dark-blue); /* Ensured description is navy */
+        }
+
+        .specs {
+            text-align: left; /* Keep specs left-aligned for readability */
+            display: inline-block; /* Allows the left-aligned text block to be centered */
+        }
+
+        .specs p {
+            font-size: 1em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .specs strong {
+            color: var(--dark-blue);
+            font-weight: 700;
+        }
+
+        .booking-cta {
+            margin-top: 40px;
+            text-align: center; /* Centered the button */
+        }
+
+        .book-button {
+            display: inline-block;
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-family: var(--headline-font);
+            font-size: 1.1em;
+            font-weight: 700;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .book-button:hover {
+            background-color: #3b5998;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+
+            .jet-title {
+                font-size: 5em;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jet-images">
+            <img src="images/G650.png" alt="Gulfstream Inrerior" class="main-image">
+        </div>
+        <div class="details-content">
+            <h1 class="jet-title">Cessna Citation XLS</h1>
+
+            <p class="description">
+                Step into the pinnacle of private avaiation with the Gulfstream G650, renowned worldwide for its speed, range, and unmatched luxury. This flagship aircraft redefines long-distance travel, offering comfort and performance at the highest level.
+            </p>
+
+            <div class="specs">
+                <p><strong>Capacity:</strong> Up to 18 passengers</p>
+                <p><strong>Range:</strong> Approx. 7000 nautical miles (12,964 km) nonstop intercontinental flights</p>
+                <p><strong>Cruising Speed:</strong> Mach 0.85 (max speed Mach 0.925)</p>
+                <p><strong>Cabin Comfort:</strong> One of the widest and most spacious cabins in its class, featuring fully reclining seats, customizable layouts, panoramic windows, and advanced cabin technology for lighting, entertainment, and connectivity</p>
+                <p><strong>Baggage Space:</strong> Generous luggage capacity for extended trips</p>
+            </div>
+
+            <p class="description" style="font-size: 1em; margin-top: 30px;">
+                The G650 makes it possible to fly nonstop between city pairs such as New York to Dubai or London to Buenos Aires in total comfort. Whether for corporate travel or luxury leisure, it ensures a smooth, quiet, and exclusive flight experience. Reserve the Gulfstream G650 and elevate your journey to a whole new level of private aviation.
+            </p>
+
+            <div class="booking-cta">
+                <a href="signup.html" class="book-button">Book your flight now</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
