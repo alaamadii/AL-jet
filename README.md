@@ -4,14 +4,40 @@ Hey there! This is a simple, multi-page web project I put together to show what 
 The whole idea behind the design was to make it look classy, tidy, and fully responsive (which means it looks great everywhere!). We focused on official colors like Navy Blue and White to give off a vibe of trust and luxury.
 ````
 AL-Jet-Project/
-├─ main.html
-├─ style.css
-├─ booking.html
-├─ cessna-details.html
-├─ gulfstream-details.html
-├─ signup.html
-├─ signin.html
-└─ terms.html 
+├── frontend/
+│    ├─ main.html
+│    ├─ style.css
+│    ├─ booking.html
+│    ├─ cessna-details.html
+│    ├─ gulfstream-details.html
+│    ├─ signup.html
+│    ├─ signin.html
+│    └─terms.html 
+│
+├── Backend/
+│      ├─config/
+│        └─database.js   
+│      ├─controllers/
+│        ├─authController.js
+│        ├─userController.js
+│        └─bookinController.js
+│      ├─middleware/
+│       ├─auth.js 
+│       └─validation.js
+│
+│      ├─models/ 
+│        ├─Booking.js
+│        ├─Jet.js
+│        └─User.js
+│      ├─routes/
+│        ├─auth.js
+│        ├─booking.js
+│        └─users.js
+│      ├─utils/
+│        └─emailService.js
+│      ├─package.json
+│      └─srver.js
+
 ````
 
 ## Cool Features (What We Built!)
@@ -50,4 +76,5 @@ The HTML is split into clear, separate files, and they all rely on one smart CSS
 - Implement **payment gateway** for online booking and transactions.  
 - Improve **UI/UX** with frameworks like React or Vue.js.  
 - Add **AI-powered recommendation system** for personalized flight options..
+
 
