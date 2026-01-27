@@ -37,7 +37,7 @@ AL-Jet-Project/
 │        └─emailService.js
 │      ├─package.json
 │      └─srver.js
-
+└─
 ````
 
 ## Cool Features (What We Built!)
@@ -76,5 +76,6 @@ The HTML is split into clear, separate files, and they all rely on one smart CSS
 - Implement **payment gateway** for online booking and transactions.  
 - Improve **UI/UX** with frameworks like React or Vue.js.  
 - Add **AI-powered recommendation system** for personalized flight options..
+
 
 
