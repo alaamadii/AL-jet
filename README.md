@@ -89,26 +89,6 @@ Requirements:
    npm run dev
    ```
 
-5. Visit [http://localhost:5000](http://localhost:5000).
-
-## API endpoints
-
-| Method | Endpoint | Authentication | Purpose |
-| --- | --- | --- | --- |
-| `GET` | `/api/v1/health` | No | API health check |
-| `POST` | `/api/v1/auth/signup` | No | Create a demo account |
-| `POST` | `/api/v1/auth/login` | No | Sign in and receive a token |
-| `POST` | `/api/v1/bookings` | Bearer token | Submit a flight request |
-| `GET` | `/api/v1/bookings` | Bearer token | List the signed-in user's requests |
-
-## Deploying the static site to GitHub Pages
-
-1. Push the repository to GitHub.
-2. Open **Settings → Pages** in the repository.
-3. Choose **Deploy from a branch**, then select the branch and root folder.
-
-GitHub Pages hosts only the static frontend. Authentication and booking submission need a separately hosted Node.js API, and `API_BASE_URL` in `app.js` must point to that API. Never commit the `.env` file.
-
 ## Known limitations
 
 - There is no payment workflow or real aviation inventory.
