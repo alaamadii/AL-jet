@@ -4,7 +4,7 @@ AL Jet is a responsive, multi-page private aviation demo with a Node.js API. Vis
 
 > **Portfolio project:** AL Jet does not operate or arrange real flights. Never enter real passport, payment, or other sensitive information.
 
-![AL Jet landing page](images/main_jet_hero.png)
+!
 
 ## Features
 
