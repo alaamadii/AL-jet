@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sign in to your AL Jet account.">
+  <title>Sign In | AL Jet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="page-shell">
+  <nav class="page-nav container" aria-label="Page navigation">
+    <a class="logo" href="main.html">AL JET</a>
+    <a class="back-link" href="main.html">← Back home</a>
+  </nav>
+  <main class="container">
+    <section class="panel panel-narrow" aria-labelledby="page-title">
+      <p class="eyebrow">Welcome back</p>
+      <h1 id="page-title">Sign in</h1>
+      <p class="lead">Access your AL Club account.</p>
+      <form id="signin-form">
+        <div class="form-grid">
+          <div class="form-group form-group-full">
+            <label for="email">Email address</label>
+            <input class="form-control" id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="password">Password</label>
+            <input class="form-control" id="password" name="password" type="password" autocomplete="current-password" minlength="8" required>
+          </div>
+          <div class="form-group form-group-full">
+            <button class="button button-dark" type="submit">Sign in</button>
+          </div>
+        </div>
+      </form>
+      <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
+      <p class="form-note">Not a member? <a href="signup.html">Create an account</a></p>
+      <p class="form-note"><a href="Terms.html">Terms &amp; Conditions</a></p>
+    </section>
+  </main>
+</body>
+</html>

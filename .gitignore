@@ -1,0 +1,14 @@
+node_modules/
+.env
+backend/.env
+.idea/
+*.log
+.DS_Store
+Thumbs.db
+
+# Keep local design drafts/screenshots out of the repository.
+images/*
+!images/main_jet_hero.png
+!images/map3.png
+!images/xls.png
+!images/G650.png

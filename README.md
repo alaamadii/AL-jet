@@ -1,81 +1,120 @@
-# AL Jet - Your Private Oasis Amongst the Clouds!
-Hey there! This is a simple, multi-page web project I put together to show what a luxury private jet service, "AL Jet," could look like. It's a super solid base if you ever want to scale it up into a complete, working flight booking platform later on!
+# AL Jet
 
-The whole idea behind the design was to make it look classy, tidy, and fully responsive (which means it looks great everywhere!). We focused on official colors like Navy Blue and White to give off a vibe of trust and luxury.
-````
-AL-Jet-Project/
-├── frontend/
-│    ├─ main.html
-│    ├─ style.css
-│    ├─ booking.html
-│    ├─ cessna-details.html
-│    ├─ gulfstream-details.html
-│    ├─ signup.html
-│    ├─ signin.html
-│    └─terms.html 
-│
-├── Backend/
-│      ├─config/
-│        └─database.js   
-│      ├─controllers/
-│        ├─authController.js
-│        ├─userController.js
-│        └─bookinController.js
-│      ├─middleware/
-│       ├─auth.js 
-│       └─validation.js
-│
-│      ├─models/ 
-│        ├─Booking.js
-│        ├─Jet.js
-│        └─User.js
-│      ├─routes/
-│        ├─auth.js
-│        ├─booking.js
-│        └─users.js
-│      ├─utils/
-│        └─emailService.js
-│      ├─package.json
-│      └─srver.js
-└─
-````
+AL Jet is a responsive, multi-page private aviation demo with a Node.js API. Visitors can explore two aircraft, create a demo account, sign in, and submit a flight quote request.
 
-## Cool Features (What We Built!)
-Complete Pages: We've got the main landing page, detailed aircraft specs, sign-up/sign-in forms, and the Terms & Conditions page.
+> **Portfolio project:** AL Jet does not operate or arrange real flights. Never enter real passport, payment, or other sensitive information.
 
-Dynamic Showcase: We used plain old Vanilla JavaScript to load the jet cards onto the main page. This makes updating the aircraft data way easier!
+![AL Jet landing page](images/main_jet_hero.png)
 
-Responsive Design: We used CSS the right way, making sure the site looks sharp and works flawlessly on all screens (phones, tablets, and desktops).
+## Features
 
-Aesthetic Touch: The colors and fonts (like Cairo and Lora) are all consistent, giving it that perfect, high-end brand feel.
+- Responsive landing page and mobile navigation
+- Dynamic fleet cards built with vanilla JavaScript
+- Aircraft detail pages for the Cessna Citation XLS and Gulfstream G650
+- Accessible sign-up, sign-in, and booking forms
+- Express REST API with MongoDB persistence
+- Password hashing with `bcryptjs`
+- JWT-based route protection
+- Server- and client-side booking validation
+- Static entry page compatible with GitHub Pages
 
-Basic Checks: We added some initial checks (Basic Validation) using JavaScript for the sign-in and sign-up forms.
+## Tech stack
 
-# Project Structure (Where to Find Stuff!)
-The HTML is split into clear, separate files, and they all rely on one smart CSS file:
+- **Frontend:** HTML5, CSS3, vanilla JavaScript
+- **Backend:** Node.js, Express
+- **Database:** MongoDB with Mongoose
+- **Authentication:** JSON Web Tokens and bcrypt
 
-| File Name                 | Purpose                                                                                | Key Tech      |
-| ------------------------- | -------------------------------------------------------------------------------------- | ------------- |
-| `main.html`               | Main Landing Page: Hero section, mission statement, and dynamic aircraft showcase.     | HTML, JS, CSS |
-| `style.css`               | Primary Stylesheet: Contains all custom CSS, including variables and responsive rules. | CSS           |
-| `booking.html`            | Flight Scheduler/Booking Form: Collects necessary flight details from the user.        | HTML, JS, CSS |
-| `cessna-details.html`     | Specification page for the Cessna Citation XLS.                                        | HTML, CSS     |
-| `gulfstream-details.html` | Specification page for the Gulfstream G650.                                            | HTML, CSS     |
-| `signup.html`             | New member registration form.                                                          | HTML, JS      |
-| `signin.html`             | Member login form.                                                                     | HTML, JS      |
-| `terms.html`              | Legal Terms & Conditions document.                                                     | HTML, CSS     |
-                                                         
+## Project structure
 
+```text
+al-jet/
+├── index.html                 # GitHub Pages entry point
+├── main.html                  # Landing page
+├── booking.html              # Flight request form
+├── signup.html               # Member registration
+├── signin.html               # Member login
+├── cessna-details.html       # Cessna aircraft page
+├── gulfstream-details.html   # Gulfstream aircraft page
+├── Terms.html                # Demo terms
+├── style.css                 # Shared styles
+├── app.js                    # Shared browser logic and API calls
+├── images/                   # Project images
+└── backend/
+    ├── config/               # Database configuration
+    ├── controllers/          # Request handlers
+    ├── middleware/           # Authentication and validation
+    ├── models/               # Mongoose models
+    ├── routes/               # API routes
+    ├── .env.example          # Environment variable template
+    ├── package.json
+    └── server.js
+```
 
+## Run the frontend only
 
+The public pages can be viewed without the API. Open `index.html` directly, or serve the project folder with any static server. Account and booking submission require the backend.
 
-# Future Potential (Where We Can Take This!)
+## Run the full project locally
 
-- Add **backend integration** (Node.js, Django, or Flask) to handle dynamic booking and user authentication.  
-- Integrate **database support** (MySQL/PostgreSQL) for storing user and flight details.  
-- Implement **payment gateway** for online booking and transactions.  
-- Improve **UI/UX** with frameworks like React or Vue.js.  
-- Add **AI-powered recommendation system** for personalized flight options..
+Requirements:
 
+- Node.js 18 or newer
+- A local or hosted MongoDB database
 
+1. Install the backend dependencies:
 
+   ```bash
+   cd backend
+   npm install
+   ```
+
+2. Copy the environment template:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   On Windows PowerShell, use:
+
+   ```powershell
+   Copy-Item .env.example .env
+   ```
+
+3. Replace `JWT_SECRET` in `.env` with a random value containing at least 32 characters. Update `MONGODB_URI` if MongoDB is not running locally.
+
+4. Start the application:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Visit [http://localhost:5000](http://localhost:5000).
+
+## API endpoints
+
+| Method | Endpoint | Authentication | Purpose |
+| --- | --- | --- | --- |
+| `GET` | `/api/v1/health` | No | API health check |
+| `POST` | `/api/v1/auth/signup` | No | Create a demo account |
+| `POST` | `/api/v1/auth/login` | No | Sign in and receive a token |
+| `POST` | `/api/v1/bookings` | Bearer token | Submit a flight request |
+| `GET` | `/api/v1/bookings` | Bearer token | List the signed-in user's requests |
+
+## Deploying the static site to GitHub Pages
+
+1. Push the repository to GitHub.
+2. Open **Settings → Pages** in the repository.
+3. Choose **Deploy from a branch**, then select the branch and root folder.
+
+GitHub Pages hosts only the static frontend. Authentication and booking submission need a separately hosted Node.js API, and `API_BASE_URL` in `app.js` must point to that API. Never commit the `.env` file.
+
+## Known limitations
+
+- There is no payment workflow or real aviation inventory.
+- The browser stores the demo JWT in `localStorage`; a production system should prefer secure, HTTP-only cookies and add CSRF protection.
+- The terms are placeholder content for a portfolio demo and are not legal advice.
+
+## Contributing
+
+Issues and pull requests are welcome. Keep changes focused, test desktop and mobile layouts, and do not commit secrets or real personal data.

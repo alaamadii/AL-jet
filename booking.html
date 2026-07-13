@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Request a quote for an AL Jet private flight.">
+  <title>Request a Flight | AL Jet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="page-shell">
+  <nav class="page-nav container" aria-label="Page navigation">
+    <a class="logo" href="main.html">AL JET</a>
+    <a class="back-link" href="main.html">← Back home</a>
+  </nav>
+  <main class="container">
+    <section class="panel" aria-labelledby="page-title">
+      <p class="eyebrow">Flight request</p>
+      <h1 id="page-title">Where can we take you?</h1>
+      <p class="lead">Tell us about your journey and our team will prepare a personalized quote.</p>
+      <form id="booking-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="departure">Departure airport</label>
+            <input class="form-control" id="departure" name="departure" type="text" placeholder="e.g. Riyadh (RUH)" minlength="3" maxlength="80" required>
+          </div>
+          <div class="form-group">
+            <label for="arrival">Arrival airport</label>
+            <input class="form-control" id="arrival" name="arrival" type="text" placeholder="e.g. Dubai (DXB)" minlength="3" maxlength="80" required>
+          </div>
+          <div class="form-group">
+            <label for="passengers">Passengers</label>
+            <input class="form-control" id="passengers" name="passengers" type="number" min="1" max="18" value="1" required>
+          </div>
+          <div class="form-group">
+            <label for="jetType">Preferred aircraft</label>
+            <select class="form-control" id="jetType" name="jetType" required>
+              <option value="">Select an aircraft</option>
+              <option value="Cessna Citation XLS">Cessna Citation XLS</option>
+              <option value="Gulfstream G650">Gulfstream G650</option>
+              <option value="No preference">No preference</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="departureDate">Departure date</label>
+            <input class="form-control" id="departureDate" name="departureDate" type="date" required>
+          </div>
+          <div class="form-group">
+            <label for="departureTime">Departure time</label>
+            <input class="form-control" id="departureTime" name="departureTime" type="time" required>
+          </div>
+          <div class="form-group form-group-full">
+            <button class="button button-dark" type="submit">Request a quote</button>
+          </div>
+        </div>
+      </form>
+      <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
+      <p class="form-note">An account is required to submit a request. <a href="signin.html">Sign in</a> or <a href="signup.html">join AL Club</a>.</p>
+    </section>
+  </main>
+</body>
+</html>

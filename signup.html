@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Create an AL Jet member account.">
+  <title>Join AL Club | AL Jet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="page-shell">
+  <nav class="page-nav container" aria-label="Page navigation">
+    <a class="logo" href="main.html">AL JET</a>
+    <a class="back-link" href="main.html">← Back home</a>
+  </nav>
+  <main class="container">
+    <section class="panel panel-narrow" aria-labelledby="page-title">
+      <p class="eyebrow">AL Club</p>
+      <h1 id="page-title">Become a member</h1>
+      <p class="lead">Create your account to request and manage private flights.</p>
+      <form id="signup-form">
+        <div class="form-grid">
+          <div class="form-group form-group-full">
+            <label for="name">Full name</label>
+            <input class="form-control" id="name" name="name" type="text" autocomplete="name" minlength="2" maxlength="80" required>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="email">Email address</label>
+            <input class="form-control" id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="passportNumber">Passport number</label>
+            <input class="form-control" id="passportNumber" name="passportNumber" type="text" autocomplete="off" minlength="5" maxlength="20" pattern="[A-Za-z0-9-]+" required>
+          </div>
+          <div class="form-group form-group-full">
+            <label for="password">Password</label>
+            <input class="form-control" id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+          </div>
+          <div class="form-group form-group-full">
+            <button class="button button-dark" type="submit">Create account</button>
+          </div>
+        </div>
+      </form>
+      <div class="form-message" id="form-message" role="status" aria-live="polite"></div>
+      <p class="form-note">Already a member? <a href="signin.html">Sign in</a></p>
+      <p class="form-note">By registering, you agree to our <a href="Terms.html">Terms &amp; Conditions</a>.</p>
+    </section>
+  </main>
+</body>
+</html>
