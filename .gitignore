@@ -5,6 +5,7 @@ backend/.env
 *.log
 .DS_Store
 Thumbs.db
+backend/.mongodb-data/
 
 # Keep local design drafts/screenshots out of the repository.
 images/*

@@ -41,16 +41,40 @@ function renderJets() {
 
   container.replaceChildren(...jets.map((jet) => {
     const article = document.createElement('article');
-    article.className = 'jet-card';
+    article.className = 'jet-card reveal';
     article.innerHTML = `
-      <img src="${jet.image}" alt="${jet.name}" loading="lazy">
+      <a class="jet-image-wrap" href="${jet.details}" aria-label="View ${jet.name}">
+        <img src="${jet.image}" alt="${jet.name}" loading="lazy">
+        <span aria-hidden="true">Explore →</span>
+      </a>
       <div class="jet-card-content">
-        <h3>${jet.name}</h3>
+        <div><p class="eyebrow">Private aircraft</p><h3>${jet.name}</h3></div>
         <p class="jet-meta">${jet.summary}</p>
-        <a href="${jet.details}">View aircraft <span aria-hidden="true">→</span></a>
       </div>`;
     return article;
   }));
+}
+
+function initializeScrollExperience() {
+  const header = document.querySelector('.hero-section .navbar');
+  const revealItems = document.querySelectorAll('.reveal');
+  if (header) {
+    const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+  }
+  if (!('IntersectionObserver' in window)) {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.14 });
+  revealItems.forEach((item) => observer.observe(item));
 }
 
 function showMessage(element, message, type) {
@@ -160,6 +184,7 @@ function initializeBookingForm() {
 document.addEventListener('DOMContentLoaded', () => {
   initializeNavigation();
   renderJets();
+  initializeScrollExperience();
   initializeSignupForm();
   initializeSigninForm();
   initializeBookingForm();
