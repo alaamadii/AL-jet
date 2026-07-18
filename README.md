@@ -2,6 +2,10 @@
 
 AL Jet is a responsive, multi-page private aviation demo with a Node.js API. Visitors can explore two aircraft, create a demo account, sign in, and submit a flight quote request.
 
+## Website demo
+
+[Watch the AL Jet website presentation video on Google Drive](https://drive.google.com/file/d/15aaiVwk2DwEqLyTMCQW5cRHPRgpRWVsC/view?usp=sharing)
+
 > **Portfolio project:** AL Jet does not operate or arrange real flights. Never enter real passport, payment, or other sensitive information.
 
 
